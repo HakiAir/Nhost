@@ -4,12 +4,8 @@ public class BedInteractable : MonoBehaviour, IInteractable
 {
     public string Prompt => "Спать";
 
-    [SerializeField] private float duration = 3f;
-    [SerializeField] private float cooldown = 6f;
-
     [SerializeField] private float sleepGain = 25f;
     [SerializeField] private float focusGain = 10f;
-
     [SerializeField] private bool debugLogs = true;
 
     private float nextUseTime;
@@ -25,7 +21,7 @@ public class BedInteractable : MonoBehaviour, IInteractable
         var actions = PlayerActionSystem.Instance;
         if (actions == null) return;
 
-        bool started = actions.TryStartTimed(duration, "Спишь...", () =>
+        bool started = actions.TryStartTimed(GameplayBalance.Actions.BedDuration, "Спишь...", () =>
         {
             var s = PlayerStats.Instance;
             if (s == null) return;
@@ -38,12 +34,8 @@ public class BedInteractable : MonoBehaviour, IInteractable
 
         if (started)
         {
-            nextUseTime = Time.time + cooldown;
-            if (debugLogs) Debug.Log($"[Bed] Started (cooldown {cooldown:0.0}s)");
-        }
-        else
-        {
-            if (debugLogs) Debug.Log("[Bed] Not started (player busy?)");
+            nextUseTime = Time.time + GameplayBalance.Actions.BedCooldown;
+            if (debugLogs) Debug.Log($"[Bed] Started (cooldown {GameplayBalance.Actions.BedCooldown:0.0}s)");
         }
     }
 }

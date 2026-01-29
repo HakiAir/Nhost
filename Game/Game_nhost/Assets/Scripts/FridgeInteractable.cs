@@ -4,10 +4,7 @@ public class FridgeInteractable : MonoBehaviour, IInteractable
 {
     public string Prompt => "Поесть";
 
-    [SerializeField] private float duration = 2f;
-    [SerializeField] private float cooldown = 4f;
     [SerializeField] private float hungerGain = 30f;
-
     [SerializeField] private bool debugLogs = true;
 
     private float nextUseTime;
@@ -23,7 +20,7 @@ public class FridgeInteractable : MonoBehaviour, IInteractable
         var actions = PlayerActionSystem.Instance;
         if (actions == null) return;
 
-        bool started = actions.TryStartTimed(duration, "Ешь...", () =>
+        bool started = actions.TryStartTimed(GameplayBalance.Actions.FridgeDuration, "Ешь...", () =>
         {
             var s = PlayerStats.Instance;
             if (s == null) return;
@@ -35,12 +32,8 @@ public class FridgeInteractable : MonoBehaviour, IInteractable
 
         if (started)
         {
-            nextUseTime = Time.time + cooldown;
-            if (debugLogs) Debug.Log($"[Fridge] Started (cooldown {cooldown:0.0}s)");
-        }
-        else
-        {
-            if (debugLogs) Debug.Log("[Fridge] Not started (player busy?)");
+            nextUseTime = Time.time + GameplayBalance.Actions.FridgeCooldown;
+            if (debugLogs) Debug.Log($"[Fridge] Started (cooldown {GameplayBalance.Actions.FridgeCooldown:0.0}s)");
         }
     }
 }

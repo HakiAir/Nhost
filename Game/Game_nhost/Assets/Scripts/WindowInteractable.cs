@@ -4,10 +4,7 @@ public class WindowInteractable : MonoBehaviour, IInteractable
 {
     public string Prompt => "Открыть окно";
 
-    [SerializeField] private float duration = 1.5f;
-    [SerializeField] private float cooldown = 3f;
     [SerializeField] private float focusGain = 15f;
-
     [SerializeField] private bool debugLogs = true;
 
     private float nextUseTime;
@@ -23,7 +20,7 @@ public class WindowInteractable : MonoBehaviour, IInteractable
         var actions = PlayerActionSystem.Instance;
         if (actions == null) return;
 
-        bool started = actions.TryStartTimed(duration, "Проветриваешь...", () =>
+        bool started = actions.TryStartTimed(GameplayBalance.Actions.WindowDuration, "Проветриваешь...", () =>
         {
             var s = PlayerStats.Instance;
             if (s == null) return;
@@ -35,12 +32,8 @@ public class WindowInteractable : MonoBehaviour, IInteractable
 
         if (started)
         {
-            nextUseTime = Time.time + cooldown;
-            if (debugLogs) Debug.Log($"[Window] Started (cooldown {cooldown:0.0}s)");
-        }
-        else
-        {
-            if (debugLogs) Debug.Log("[Window] Not started (player busy?)");
+            nextUseTime = Time.time + GameplayBalance.Actions.WindowCooldown;
+            if (debugLogs) Debug.Log($"[Window] Started (cooldown {GameplayBalance.Actions.WindowCooldown:0.0}s)");
         }
     }
 }
