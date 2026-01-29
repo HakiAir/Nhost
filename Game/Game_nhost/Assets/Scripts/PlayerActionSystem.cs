@@ -6,10 +6,14 @@ public class PlayerActionSystem : MonoBehaviour
 {
     public static PlayerActionSystem Instance { get; private set; }
 
+    [Header("Setup")]
     [SerializeField] private MonoBehaviour[] disableWhileBusy;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private InteractionPromptUI promptUI;
     [SerializeField] private ActionOverlayUI overlay;
+
+    [Header("Debug")]
+    [SerializeField] private bool debugLogs = true;
 
     public bool IsBusy { get; private set; }
 
@@ -21,7 +25,12 @@ public class PlayerActionSystem : MonoBehaviour
 
     public bool TryStartTimed(float duration, string text, Action onComplete)
     {
-        if (IsBusy) return false;
+        if (IsBusy)
+        {
+            if (debugLogs) Debug.Log($"[Action] Can't start '{text}' — player is busy.");
+            return false;
+        }
+
         StartCoroutine(Run(duration, text, onComplete));
         return true;
     }
@@ -30,7 +39,8 @@ public class PlayerActionSystem : MonoBehaviour
     {
         IsBusy = true;
 
-        // выключаем управление
+        if (debugLogs) Debug.Log($"[Action] START '{text}' ({duration:0.0}s)");
+
         foreach (var c in disableWhileBusy)
             if (c != null) c.enabled = false;
 
@@ -48,12 +58,14 @@ public class PlayerActionSystem : MonoBehaviour
         }
 
         overlay?.HideInstant();
+
         onComplete?.Invoke();
 
-        // включаем обратно
         foreach (var c in disableWhileBusy)
             if (c != null) c.enabled = true;
 
         IsBusy = false;
+
+        if (debugLogs) Debug.Log($"[Action] END '{text}'");
     }
 }
