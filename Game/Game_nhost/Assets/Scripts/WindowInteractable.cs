@@ -2,7 +2,7 @@
 
 public class WindowInteractable : MonoBehaviour, IInteractable
 {
-    public string Prompt => "Открыть окно";
+    public string Prompt => "Смотреть в окно";
 
     [SerializeField] private float focusGain = 15f;
     [SerializeField] private bool debugLogs = true;
@@ -20,7 +20,7 @@ public class WindowInteractable : MonoBehaviour, IInteractable
         var actions = PlayerActionSystem.Instance;
         if (actions == null) return;
 
-        bool started = actions.TryStartTimed(GameplayBalance.Actions.WindowDuration, "Проветриваешь...", () =>
+        bool started = actions.TryStartTimed(GameplayBalance.Actions.WindowDuration, "Смотришь...", () =>
         {
             var s = PlayerStats.Instance;
             if (s == null) return;
