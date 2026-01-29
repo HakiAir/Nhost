@@ -7,7 +7,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var zone = other.GetComponent<InteractZone>();
+        var zone = other.GetComponentInParent<InteractZone>();
         if (zone == null || zone.Interactable == null) return;
 
         currentZone = zone;
@@ -16,7 +16,10 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (currentZone != null && other.gameObject == currentZone.gameObject)
+        var zone = other.GetComponentInParent<InteractZone>();
+        if (zone == null) return;
+
+        if (currentZone == zone)
         {
             currentZone = null;
             Debug.Log("Вышел из зоны");

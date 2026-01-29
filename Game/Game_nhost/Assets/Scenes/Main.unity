@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 1172291866}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b7e045833b1e445a648574b1fcc733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonMovement
-  moveSpeed: 7
+  moveSpeed: 50
 --- !u!54 &1172291869
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -789,7 +789,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1172291870
 CapsuleCollider:
@@ -1434,7 +1434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 450483282151435402, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.29494
+      value: -31.5
       objectReference: {fileID: 0}
     - target: {fileID: 450483282151435402, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1471,6 +1471,18 @@ PrefabInstance:
     - target: {fileID: 5596932421909350126, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313241571198650957, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
+      propertyPath: m_Size.y
+      value: 39.070312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313241571198650957, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
+      propertyPath: m_Center.y
+      value: 19.035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 6764047296356474466, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8564989610726407071, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -1549,6 +1561,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6440348449500287420, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 69.38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1562,6 +1578,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 684367}
     m_Modifications:
+    - target: {fileID: 438649991448859771, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 438649991448859771, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 438649991448859771, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55.07
+      objectReference: {fileID: 0}
     - target: {fileID: 763718335431790621, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.803619
@@ -1602,6 +1630,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3295195978333331136, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 3788781344480727562, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_Name
+      value: glass
+      objectReference: {fileID: 0}
+    - target: {fileID: 6230844024635755352, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 87c6b2bd673eaef4388c92f882c606ff, type: 2}
     - target: {fileID: 6348726988412545255, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 0
@@ -1613,6 +1653,10 @@ PrefabInstance:
     - target: {fileID: 6679785357368105902, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: m_Name
       value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756356564395688706, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_Name
+      value: interectglass
       objectReference: {fileID: 0}
     - target: {fileID: 6756356564395688706, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: m_Layer
@@ -1686,6 +1730,10 @@ PrefabInstance:
     - target: {fileID: 3727284287163010626, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147710354832594385, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
