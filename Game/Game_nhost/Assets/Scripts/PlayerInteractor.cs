@@ -40,6 +40,9 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerActionSystem.Instance != null && PlayerActionSystem.Instance.IsBusy)
+            return;
+
         if (currentZone == null) return;
 
         if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
