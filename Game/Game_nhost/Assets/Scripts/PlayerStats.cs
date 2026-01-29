@@ -73,4 +73,23 @@ public class PlayerStats : MonoBehaviour
         focus = Mathf.Clamp(focus + amount, 0f, 100f);
         OnChanged?.Invoke();
     }
+
+    public void SetSleep(float value)
+    {
+        sleep = Mathf.Clamp(value, 0f, 100f);
+        OnChanged?.Invoke();
+    }
+
+    public void SetHunger(float value)
+    {
+        hunger = Mathf.Clamp(value, 0f, 100f);
+        OnChanged?.Invoke();
+    }
+
+    public void SetFocus(float value)
+    {
+        focus = Mathf.Clamp(value, 0f, 100f);
+        OnChanged?.Invoke();
+    }
+
 }

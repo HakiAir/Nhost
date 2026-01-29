@@ -2,9 +2,12 @@
 {
     public static class Actions
     {
-        // Bed
-        public const float BedDuration = 3f;
-        public const float BedCooldown = 6f;
+        // Bed (по SRS: экран темнеет на 5 секунд)
+        public const float BedDuration = 5f;
+
+        // Кулдаун кровати не обязателен, т.к. доступность ограничена временем.
+        // Оставим 0, чтобы не мешал.
+        public const float BedCooldown = 0f;
 
         // Fridge
         public const float FridgeDuration = 2f;

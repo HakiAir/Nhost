@@ -21,6 +21,8 @@ public class GameTime : MonoBehaviour
     public int Hour { get; private set; }
     public int Minute { get; private set; }
 
+    public int TotalMinutesOfDay => Hour * 60 + Minute;
+
     public event Action OnMinuteChanged;
 
     private float acc;
@@ -78,6 +80,28 @@ public class GameTime : MonoBehaviour
         Minute = total % 60;
 
         if (debugLogs) Debug.Log($"[GameTime] Day {Day} {Hour:00}:{Minute:00}");
+
+        OnMinuteChanged?.Invoke();
+    }
+
+    public void SetTime(int day, int hour, int minute)
+    {
+        Day = Mathf.Max(1, day);
+        Hour = Mathf.Clamp(hour, 0, 23);
+        Minute = Mathf.Clamp(minute, 0, 59);
+
+        if (debugLogs) Debug.Log($"[GameTime] SetTime -> Day {Day} {Hour:00}:{Minute:00}");
+
+        OnMinuteChanged?.Invoke();
+    }
+
+    public void AdvanceToNextDayAndWakeAt0830()
+    {
+        Day += 1;
+        Hour = 8;
+        Minute = 30;
+
+        if (debugLogs) Debug.Log($"[GameTime] Wake -> Day {Day} {Hour:00}:{Minute:00}");
 
         OnMinuteChanged?.Invoke();
     }
