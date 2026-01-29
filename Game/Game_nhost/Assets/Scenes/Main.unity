@@ -2913,6 +2913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5348752e8e39cef4791cc2f493eb1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionPromptUI
+  root: {fileID: 1245281396}
   label: {fileID: 680145376}
 --- !u!114 &1245281399
 MonoBehaviour:

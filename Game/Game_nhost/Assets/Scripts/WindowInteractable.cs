@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class WindowInteractable : MonoBehaviour, IInteractable
 {
-    public string Prompt => isActive ? "Закончить (E)" : "Открыть окно";
+    public string Prompt => isActive ? "Закончить (E)" : "Посмотреть в окно";
 
     [Header("Focus restore")]
     [SerializeField, Min(1)] private int focusFullRestoreMinutes = 5; // <n> внутриигровых минут до 100%
@@ -85,6 +85,8 @@ public class WindowInteractable : MonoBehaviour, IInteractable
         if (!actions.TryBeginManual(showOverlay: false))
             return;
 
+        actions.ShowManualHint("E - Отойти от окна");
+
         isActive = true;
 
         // --- Exit guard: игнорим "тот же E" ---
@@ -146,7 +148,12 @@ public class WindowInteractable : MonoBehaviour, IInteractable
         }
 
         isActive = false;
-        actions?.EndManual();
+
+        if (actions != null)
+        {
+            actions.ClearManualHint();
+            actions.EndManual();
+        }
 
         // cooldown before next start
         nextStartTime = Time.time + reenterCooldownSeconds;

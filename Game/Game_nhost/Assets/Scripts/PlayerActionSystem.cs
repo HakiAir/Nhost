@@ -81,10 +81,26 @@ public class PlayerActionSystem : MonoBehaviour
 
         manualMode = false;
         overlay?.HideInstant();
+
+        ClearManualHint();
+
         EndBusy();
 
         if (debugLogs) Debug.Log("[Action] MANUAL END");
     }
+
+    public void ShowManualHint(string message)
+    {
+        promptUI?.SetManualHint(message);
+    }
+
+    public void ClearManualHint()
+    {
+        promptUI?.ClearManualHint();
+    }
+
+
+
 
     // ====== common lock/unlock ======
     private void BeginBusy(bool showOverlay, string overlayText)
