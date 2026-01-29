@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 6063812990669011632}
   - component: {fileID: -7482735930578579047}
   - component: {fileID: -150801311480045680}
+  - component: {fileID: 3651160067306616118}
   m_Layer: 3
   m_Name: Window
   m_TagString: Untagged
@@ -196,6 +197,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.NewMonoBehaviour
   prompt: "\u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   debugMessage: Interact!
+--- !u!114 &3651160067306616118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679785357368105902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba58f79b352f224d835d999aca14589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindowInteractable
+  focusGain: 15
 --- !u!1 &6756356564395688706
 GameObject:
   m_ObjectHideFlags: 0
