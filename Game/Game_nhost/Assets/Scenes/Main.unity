@@ -1240,7 +1240,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 450483282151435402, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.803619
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 450483282151435402, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1282,6 +1282,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed
       objectReference: {fileID: 0}
+    - target: {fileID: 5596932421909350126, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564989610726407071, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564989610726407071, guid: 39ee80d8b7f14a340a1c7ce79149d588, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1298,6 +1310,14 @@ PrefabInstance:
     - target: {fileID: 256810576494992629, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
       propertyPath: m_Name
       value: Computer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122143217385392479, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122143217385392479, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4448713335125806310, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1338,6 +1358,10 @@ PrefabInstance:
     - target: {fileID: 4448713335125806310, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528477506226993878, guid: a0f6ce838c6ed1c41bd233d40b20a865, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1392,9 +1416,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348726988412545255, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348726988412545255, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6679785357368105902, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: m_Name
       value: Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756356564395688706, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1411,7 +1447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 304393400715324095, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.803619
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 304393400715324095, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1452,6 +1488,18 @@ PrefabInstance:
     - target: {fileID: 3336790415424452810, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
       propertyPath: m_Name
       value: Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656968739490466827, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727284287163010626, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727284287163010626, guid: 5f3099cf47e1e9d49b5c0171ce5d8216, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
