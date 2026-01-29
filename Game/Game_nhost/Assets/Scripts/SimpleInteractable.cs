@@ -1,21 +1,14 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts
+public class SimpleInteractable : MonoBehaviour, IInteractable
 {
-    public class NewMonoBehaviour : MonoBehaviour
+    [SerializeField] private string prompt = "Взаимодействовать";
+    [TextArea][SerializeField] private string debugMessage = "Interact!";
+
+    public string Prompt => prompt;
+
+    public void Interact()
     {
-
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        Debug.Log($"{name}: {debugMessage}");
     }
 }
