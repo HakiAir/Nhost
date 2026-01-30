@@ -10,10 +10,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField, Range(0, 100)] private float hunger = 80f;
     [SerializeField, Range(0, 100)] private float focus = 80f;
 
-    [Header("Decay per minute")]
-    [SerializeField] private float sleepDecayPerMin = 1.0f;
-    [SerializeField] private float hungerDecayPerMin = 2.0f;
-    [SerializeField] private float focusDecayPerMin = 3.0f;
+    [Header("Debug")]
+    [SerializeField] private bool debugLogs = false;
 
     public float Sleep => sleep;
     public float Hunger => hunger;
@@ -21,7 +19,7 @@ public class PlayerStats : MonoBehaviour
 
     public event Action OnChanged;
 
-    private float _tick;
+    private GameTime time;
 
     private void Awake()
     {
@@ -33,29 +31,62 @@ public class PlayerStats : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        // обновляем раз в 0.25 сек, чтобы не спамить UI каждый кадр
-        _tick += Time.deltaTime;
-        if (_tick < 0.25f) return;
-        _tick = 0f;
+        time = GameTime.Instance;
+        if (time == null)
+        {
+            Debug.LogError("[PlayerStats] GameTime.Instance not found. Add GameTime to a GameObject in the scene.");
+            enabled = false;
+            return;
+        }
+
+        time.OnMinuteChanged += OnGameMinute;
+    }
+
+    private void OnDestroy()
+    {
+        if (time != null)
+            time.OnMinuteChanged -= OnGameMinute;
+    }
+
+    private void OnGameMinute()
+    {
+        // 1 игровая минута прошла => снимаем по (perHour/60)
+        ApplyDrainForMinutes(1);
+    }
+
+    private void ApplyDrainForMinutes(int minutes)
+    {
+        if (minutes <= 0) return;
+
+        float hDrain = GameplayBalance.Stats.HungerDrainPerHour * (minutes / 60f);
+        float sDrain = GameplayBalance.Stats.SleepDrainPerHour * (minutes / 60f);
+        float fDrain = GameplayBalance.Stats.FocusDrainPerHour * (minutes / 60f);
 
         bool changed = false;
 
-        changed |= ApplyDecay(ref sleep, sleepDecayPerMin);
-        changed |= ApplyDecay(ref hunger, hungerDecayPerMin);
-        changed |= ApplyDecay(ref focus, focusDecayPerMin);
+        changed |= Subtract(ref hunger, hDrain);
+        changed |= Subtract(ref sleep, sDrain);
+        changed |= Subtract(ref focus, fDrain);
 
-        if (changed) OnChanged?.Invoke();
+        if (changed)
+        {
+            if (debugLogs)
+                Debug.Log($"[Stats] -{minutes}min => Hunger {hunger:0}, Sleep {sleep:0}, Focus {focus:0}");
+
+            OnChanged?.Invoke();
+        }
     }
 
-    private bool ApplyDecay(ref float value, float perMin)
+    private bool Subtract(ref float value, float amount)
     {
         float old = value;
-        value = Mathf.Clamp(value - perMin * (0.25f / 60f), 0f, 100f);
+        value = Mathf.Clamp(value - amount, 0f, 100f);
         return !Mathf.Approximately(old, value);
     }
 
+    // --- Add ---
     public void AddSleep(float amount)
     {
         sleep = Mathf.Clamp(sleep + amount, 0f, 100f);
@@ -74,6 +105,7 @@ public class PlayerStats : MonoBehaviour
         OnChanged?.Invoke();
     }
 
+    // --- Set ---
     public void SetSleep(float value)
     {
         sleep = Mathf.Clamp(value, 0f, 100f);
@@ -92,4 +124,9 @@ public class PlayerStats : MonoBehaviour
         OnChanged?.Invoke();
     }
 
+ 
+    public void ApplyTimeSkipMinutes(int minutes)
+    {
+        ApplyDrainForMinutes(minutes);
+    }
 }

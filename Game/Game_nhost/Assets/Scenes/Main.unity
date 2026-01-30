@@ -2840,9 +2840,7 @@ MonoBehaviour:
   sleep: 90
   hunger: 78
   focus: 83
-  sleepDecayPerMin: 10
-  hungerDecayPerMin: 10
-  focusDecayPerMin: 10
+  debugLogs: 0
 --- !u!114 &1172291875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4918,7 +4916,7 @@ PrefabInstance:
       objectReference: {fileID: 330585546}
     - target: {fileID: 3651160067306616118, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: focusFullRestoreMinutes
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3788781344480727562, guid: c9de1bb5e7056594b92c1555fc625a6d, type: 3}
       propertyPath: m_Name

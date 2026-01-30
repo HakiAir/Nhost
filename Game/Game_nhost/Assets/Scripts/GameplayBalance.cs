@@ -2,11 +2,8 @@
 {
     public static class Actions
     {
-        // Bed (по SRS: экран темнеет на 5 секунд)
+        // Bed
         public const float BedDuration = 5f;
-
-        // Кулдаун кровати не обязателен, т.к. доступность ограничена временем.
-        // Оставим 0, чтобы не мешал.
         public const float BedCooldown = 0f;
 
         // Fridge
@@ -16,5 +13,13 @@
         // Window
         public const float WindowDuration = 1.5f;
         public const float WindowCooldown = 3f;
+    }
+
+    public static class Stats
+    {
+        // Расход В ПРОЦЕНТАХ за 1 ВНУТРИИГРОВОЙ час
+        public const float HungerDrainPerHour = 8f;
+        public const float SleepDrainPerHour = 5f;
+        public const float FocusDrainPerHour = 6f;
     }
 }
