@@ -4,7 +4,6 @@ public class FridgeInteractable : MonoBehaviour, IInteractable
 {
     public string Prompt => "Поесть";
 
-    [SerializeField] private float hungerGain = 30f;
     [SerializeField] private bool debugLogs = true;
 
     private float nextUseTime;
@@ -25,9 +24,9 @@ public class FridgeInteractable : MonoBehaviour, IInteractable
             var s = PlayerStats.Instance;
             if (s == null) return;
 
-            s.AddHunger(hungerGain);
+            s.SetHunger(100f);
 
-            if (debugLogs) Debug.Log($"[Fridge] Applied: +Hunger {hungerGain}");
+            if (debugLogs) Debug.Log("[Fridge] Applied: Hunger -> 100%");
         });
 
         if (started)

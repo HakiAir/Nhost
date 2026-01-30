@@ -1750,7 +1750,7 @@ MonoBehaviour:
   startDay: 1
   startHour: 8
   startMinute: 30
-  realSecondsPerGameMinute: 1
+  realSecondsPerGameMinute: 0.1
   debugLogs: 0
 --- !u!4 &696908919
 Transform:
@@ -2840,9 +2840,9 @@ MonoBehaviour:
   sleep: 90
   hunger: 78
   focus: 83
-  sleepDecayPerMin: 4
-  hungerDecayPerMin: 4
-  focusDecayPerMin: 4
+  sleepDecayPerMin: 10
+  hungerDecayPerMin: 10
+  focusDecayPerMin: 10
 --- !u!114 &1172291875
 MonoBehaviour:
   m_ObjectHideFlags: 0
